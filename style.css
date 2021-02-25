@@ -1,0 +1,42 @@
+.app-container{
+    width:400px;
+    border: 1px solid mediumaquamarine;
+}
+.app-title{
+    background-color: mediumpurple;
+    text-align: center;
+}
+.to-do-list{
+    background-color: oldlace;
+    text-align: center;
+}
+.task{
+    border-bottom: 1px solid yellowgreen;
+}
+.add-task{
+    margin: 10px 0;
+}
+.remainder{
+
+}
+.task-input{
+    background-color: darkgrey;
+    display: none;
+    margin: 50px 0;
+    padding: 20px;
+
+}
+.hidden{
+    display: none;
+}
+.visible{
+    display: block;
+}
+
+.close-button{
+    float: right;
+}
+.task-input input{
+    display: block;
+
+}

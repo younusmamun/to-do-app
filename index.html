@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container container">
+        <div class="app-title">
+            <h1>Tasks List</h1>
+        </div>
+        <div onclick="myFunction(event)" id="to-do-chart" class="to-do-list">
+              
+        </div>
+        <Button onclick="showTaskForm()"  class="add-task btn btn-success">New Task</Button>
+
+
+        <div class="task-input ">
+            <form>
+                <div class="close-button">
+                    <button onclick="hideTaskForm(event)"  class="btn btn-primary">close</button>
+                </div> 
+                <div class="mb-3">
+                  <label for="" class="form-label">Work Title</label>
+                  <input   type="text"  class="form-control" id="task-title-text" >
+                </div>
+                <div class="mb-3">
+                  <label for="date" class="form-label">Date</label>
+                  <input  type="date" class="form-control" id="task-date">
+                </div>
+                <div class="mb-3 form-check">
+                    <label class="form-check-label" for="">Check me out</label>
+                  <input value="remainderchacked" type="checkbox" class="form-check-input" id="task-remainder">
+                </div>
+              </form>
+              <div>
+                <button onclick="submitTask()"   type="submit" class="btn btn-primary">Add task</button>
+            </div>
+        </div>  
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
