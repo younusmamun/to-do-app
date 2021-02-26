@@ -13,24 +13,24 @@
         <div class="app-title">
             <h1>Tasks List</h1>
         </div>
-        <div onclick="myFunction(event)" id="to-do-chart" class="to-do-list">
+        <div onclick="deleteTask(event)" id="to-do-chart" class="to-do-list">
               
         </div>
-        <Button onclick="showTaskForm()"  class="add-task btn btn-success">New Task</Button>
+        <Button onclick="showTaskForm()"  class="add-task btn btn-success">Add Task</Button>
 
 
         <div class="task-input ">
-            <form>
+            <form id="taskForm">
                 <div class="close-button">
                     <button onclick="hideTaskForm(event)"  class="btn btn-primary">close</button>
                 </div> 
                 <div class="mb-3">
                   <label for="" class="form-label">Work Title</label>
-                  <input   type="text"  class="form-control" id="task-title-text" >
+                  <input required   type="text"  class="form-control" id="task-title-text" >
                 </div>
                 <div class="mb-3">
                   <label for="date" class="form-label">Date</label>
-                  <input  type="date" class="form-control" id="task-date">
+                  <input required type="date" class="form-control" id="task-date">
                 </div>
                 <div class="mb-3 form-check">
                     <label class="form-check-label" for="">Check me out</label>
@@ -38,7 +38,7 @@
                 </div>
               </form>
               <div>
-                <button onclick="submitTask()"   type="submit" class="btn btn-primary">Add task</button>
+                <button onclick="submitTask()"   type="submit" class="btn btn-primary">Submit task</button>
             </div>
         </div>  
     </div>

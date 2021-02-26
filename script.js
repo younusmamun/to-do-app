@@ -1,6 +1,6 @@
 
 
-let task = [
+let tasks = [
     {   id:1,
         taskName: "cooking",
         date: "10.01.21",
@@ -21,9 +21,6 @@ let task = [
     }
 ];
 
-//let task = [];
- 
-
 
 
 function showTaskForm() {
@@ -42,43 +39,36 @@ function hideTaskForm(event) {
 
 function submitTask(){
 
-    var taskNameValue = document.getElementById('task-title-text').value;
-    var taskDateValue = document.getElementById('task-date').value;
-    var taskRemainderValue = document.getElementById('task-remainder').value;
-
-
-    let taskValues ={
-        id:Math.floor(Math.random() * 1000),
-        taskName:taskNameValue,
-        date: taskDateValue,
-        remainder: taskRemainderValue,
-        
-    };
-
-    task.push(taskValues);
-
-    console.log("task array after push",task);
-    //console.log(task[3].taskName);
-
-
-    showTask(task);
-
-    
+    let taskNameValue = document.getElementById('task-title-text').value;
+    let taskDateValue = document.getElementById('task-date').value;
+    let taskRemainderValue = document.getElementById('task-remainder').value;
+    if(taskNameValue || taskDateValue !=""){
+        let taskValues ={
+            id:Math.floor(Math.random() * 1000),
+            taskName:taskNameValue,
+            date: taskDateValue,
+            remainder: taskRemainderValue,
+            
+        };
+        tasks.push(taskValues);
+        showTask(tasks);
+        cleanInputForms();
+        console.log("task array after push",tasks);
+    }else{
+        alert("fill forms");
+    }
 
 }
 
 
-function showTask(task){
+function showTask(tasks){
     //console.log(task.length);
-    document.getElementById("to-do-chart").innerHTML="";
-    //console.log(task.length);
-    for(let i=0;i<task.length;i++){
+    document.getElementById("to-do-chart").innerHTML = "";
+    for( let i = 0; i < tasks.length; i++ ){
         let taskHtml = `        
-                    <h2>${task[i].taskName}</h2>
-                    <h3>${task[i].date}</h3>
-                    <h4>${task[i].remainder}</h4>
-                    <h4>id:${task[i].id}</h4>
-                    <button id="taskClose" value="${task[i].id}">close</button>        
+                    <h2>${tasks[i].taskName}</h2>
+                    <h3>${tasks[i].date}</h3>
+                    <button id="taskClose" value="${tasks[i].id}">close</button>        
             `;
     
         let addDiv= document.createElement("div");
@@ -87,38 +77,20 @@ function showTask(task){
     
         let taskContainerDiv = document.getElementById("to-do-chart");
         taskContainerDiv.appendChild(addDiv);
-
-        // let closeId2 = document.getElementById("taskClose").value; 
-        // console.log("closed task Id 2 ",closeId2);
     
     }
 
+
 }
 
-// function removeTask(task){
-//     let closeId = document.getElementById("taskClose").value; 
-//     //let closeId = 55;
-//     console.log("closed task Id ",closeId);
-//     console.log("task before close ",task);
-//     let index= task.findIndex(obj=> obj.id===closeId);
-//     console.log("close task index in array ",index);
-//     task.splice(index, 1); 
-//     console.log("array after close ",task);
-//     showTask(task);
-// } 
 
-function myFunction(event) { 
-    console.log("clicked button id",event.target.value);
+function deleteTask(event) { 
     let closeId = event.target.value; 
-    console.log("closed task Id ",closeId);
-    console.log("task array before close ",task);
-    let taskIndex= task.findIndex(singleTask=> singleTask.id === closeId);
-    //let taskIndex = 0;
-    console.log("close task index in array ",taskIndex);
+    tasks= tasks.filter(singleTask => singleTask.id != closeId);
+    showTask(tasks);
 
+}
 
-    //task.splice(taskIndex, 1); 
-    //console.log("array after close ",task);
-    //showTask(task);
-
-  }
+function cleanInputForms(){
+    document.getElementById("taskForm").reset();
+}
